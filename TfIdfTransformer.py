@@ -1,7 +1,7 @@
 import math
 
 
-class TfIdfTransformer():
+class TfIdfTransformer:
     """
     Class for calculating tf-idf metric for matrix of frequencies (result of
     CountVectorizer, for example) and transform into tf-idf matrix
@@ -31,14 +31,13 @@ class TfIdfTransformer():
         if not isinstance(freq_corpus, list):
             raise TypeError("Corpus must be list")
         for corpus_elem in freq_corpus:
-            if sum([isinstance(elem, int) for elem in corpus_elem]) != len(
-                    corpus_elem):
+            if sum([isinstance(elem, int) for elem in corpus_elem]) !=\
+                    len(corpus_elem):
                 raise ValueError("Corpus must contain only int values")
 
         result_freq_corpus = []
         for lst in freq_corpus:
-            result_freq_corpus.append(
-                [elem / sum(lst) for elem in lst])
+            result_freq_corpus.append([elem / sum(lst) for elem in lst])
 
         return result_freq_corpus
 
@@ -61,18 +60,20 @@ class TfIdfTransformer():
         if not isinstance(freq_corpus, list):
             raise TypeError("Corpus must be list")
         for corpus_elem in freq_corpus:
-            if sum([isinstance(elem, int) for elem in corpus_elem]) != len(
-                    corpus_elem):
+            if sum([isinstance(elem, int) for elem in corpus_elem]) !=\
+                    len(corpus_elem):
                 raise ValueError("Corpus must contain only int values")
 
         total = len(freq_corpus)
         cur_lst = [0 for _ in range(len(freq_corpus[0]))]
         for lst in freq_corpus:
-            cur_lst = [cur_lst[i] + int(lst[i] != 0) for i in
-                       range(len(cur_lst))]
+            cur_lst = [
+                cur_lst[i] + int(lst[i] != 0) for i in range(len(cur_lst))
+            ]
 
-        result_idf = [math.log((total + 1) / (elem + 1)) + 1 for elem
-                      in cur_lst]
+        result_idf = [
+            math.log((total + 1) / (elem + 1)) + 1 for elem in cur_lst
+        ]
         return result_idf
 
     def fit_transform(self, freq_corpus):
@@ -92,7 +93,11 @@ class TfIdfTransformer():
         tf_corp = self.tf_transform(freq_corpus)
         idf_corp = self.idf_transform(freq_corpus)
 
-        tf_idf_result = [[round(lst[i] * idf_corp[i], 3) for i in
-                          range(len(lst))] for lst in tf_corp]
+        tf_idf_result = [
+            [
+                round(lst[i] * idf_corp[i], 3) for i in range(len(lst))
+            ]
+            for lst in tf_corp
+        ]
 
         return tf_idf_result
