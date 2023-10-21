@@ -1,4 +1,14 @@
 class CountVectorizer:
+    """
+    Class for vectoring corpus of documents to matrix by BOW algorithm
+    ------
+    :attr: __feat_names - ordered set of words in corpus
+    ------
+    :method: __init__ - constructor
+    :method: fit_transform - transform data to matrix of numbers
+    :method: get_features_name - get __feat_names parameter
+    """
+
     def __init__(self) -> None:
         """
         Constructor: initialize __feat_names: list which contains unique words
@@ -31,7 +41,7 @@ class CountVectorizer:
         """
         self.__feat_names.clear()
         if not isinstance(corpus, list):
-            raise TypeError("Corpus must be list")
+            raise TypeError("Corpus must be iterable object")
         for corpus_elem in corpus:
             if not isinstance(corpus_elem, str):
                 raise ValueError("Corpus must contain only string values")
