@@ -1,4 +1,4 @@
-from CountVectorizer import CountVectorizer
+from TfIdfVectorizer import TfIdfVectorizer
 
 
 def main():
@@ -10,11 +10,12 @@ def main():
         "Pasta Pomodoro Fresh ingredients Parmesan to taste",
     ]
 
-    vectorizer = CountVectorizer()
-    count_matrix = vectorizer.fit_transform(corpus)
-    print(vectorizer.get_feature_names())
+    tf_idf_vectorizer = TfIdfVectorizer()
+    result = tf_idf_vectorizer.fit_transform(corpus)
 
-    print(count_matrix)
+    print(result)
+
+    print(tf_idf_vectorizer.get_feature_names())
 
 
 if __name__ == "__main__":
