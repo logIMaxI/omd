@@ -2,13 +2,13 @@
 
 **python -m doctest -f C:\Users\maxxx\aaa-python-tasks\omd\morse_test.py -o NORMALIZE_WHITESPACE -v**
 
-Trying:
+'Trying:
 
     test_encode('SOS')
     
 Expecting:
 
-    '... ---       ...'
+    ... ---       ...
     
 ok
 
@@ -18,7 +18,7 @@ Trying:
     
 Expecting:
 
-    '.... . .-.. .-.. ---   -- -.--   -. .- -- .   .. ...   -- .- -..-'
+    .... . .-.. .-.. ---   -- -.--   -. .- -- .   .. ...   -- .- -..-
     
 ok
 
@@ -56,7 +56,7 @@ Trying:
     
 Expecting:
 
-    '          '
+    "          "
     
 **********************************************************************
 
@@ -68,11 +68,11 @@ Failed example:
     
 Expected:
 
-    '          '
+    "          "
     
 Got:
 
-    '         '
+    "         "
     
 2 items had no tests:
 
@@ -90,7 +90,7 @@ Got:
 
 4 passed and 1 failed.
 
-***Test Failed*** 1 failures.
+***Test Failed*** 1 failures.'
 
 ---
 
